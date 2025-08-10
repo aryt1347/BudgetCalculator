@@ -2,11 +2,23 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [income, setIncome] = useState(0);
+  const [rentMortgage, setRentMortgage] = useState(0);
 
   function handleSubmit() {
+    event.preventDefault();
     console.log("Budget Form Submitted");
+    console.log("Income: " + income);
+    console.log("Income After Rent/Mortgage: " + (income-rentMortgage));
+
   }
+   const handleIncome = (event) => {
+      setIncome(event.target.value);
+  };
+   const handelRentMortgage = (event) => {
+      setRentMortgage(event.target.value);
+  };
+
 
   return (
     <>
@@ -21,8 +33,8 @@ function App() {
               <label>Salary/Earned Income</label>
             </div>
             <div className="row-span-2 ">
-              <div class="flex outline-1 outline-gray-300 bg-white">
-                <div class="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">
+              <div className="flex outline-1 outline-gray-300 bg-white">
+                <div className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">
                   $
                 </div>
 
@@ -32,6 +44,7 @@ function App() {
                   name="income"
                   placeholder="0.00"
                   step="0.01"
+                  onChange={handleIncome}
                   className="grow pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   required
                 />
@@ -50,8 +63,8 @@ function App() {
               <label>Rent or Mortgage</label>
             </div>
             <div className="row-span-2 ">
-              <div class="flex outline-1 outline-gray-300  bg-white">
-                <div class="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">
+              <div className="flex outline-1 outline-gray-300  bg-white">
+                <div className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">
                   $
                 </div>
 
@@ -61,6 +74,7 @@ function App() {
                   name="rent_mortgage"
                   placeholder="0.00"
                   step="0.01"
+                  onChange={handelRentMortgage}
                   className="grow pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   required
                 />
@@ -73,8 +87,8 @@ function App() {
               <label>Water</label>
             </div>
             <div className="row-span-2 ">
-              <div class="flex outline-1 outline-gray-300  bg-white">
-                <div class="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">
+              <div className="flex outline-1 outline-gray-300  bg-white">
+                <div className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">
                   $
                 </div>
                 <input
@@ -95,8 +109,8 @@ function App() {
               <label>Electricity</label>
             </div>
             <div className="row-span-2">
-              <div class="flex outline-1 outline-gray-300  bg-white">
-                <div class="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">
+              <div className="flex outline-1 outline-gray-300  bg-white">
+                <div className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">
                   $
                 </div>
 
@@ -118,8 +132,8 @@ function App() {
               <label>Internet</label>
             </div>
             <div className="row-span-2">
-              <div class="flex outline-1 outline-gray-300  bg-white">
-                <div class="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">
+              <div className="flex outline-1 outline-gray-300  bg-white">
+                <div className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">
                   $
                 </div>
 
@@ -141,8 +155,8 @@ function App() {
               <label>Phone</label>
             </div>
             <div className="row-span-2">
-              <div class="flex outline-1 outline-gray-300  bg-white">
-                <div class="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">
+              <div className="flex outline-1 outline-gray-300  bg-white">
+                <div className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">
                   $
                 </div>
 

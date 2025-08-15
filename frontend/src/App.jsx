@@ -37,8 +37,22 @@ function App() {
 
 
     axios.post("http://127.0.0.1:8000/api/calculate/", {
-        income: Number(income),
-        rentMortgage: Number(rentMortgage)
+          income: Number(income),
+          rentMortgage: Number(rentMortgage),
+          water: Number(water),
+          electricity: Number(electricity),
+          internet: Number(internet),
+          phone: Number(phone),
+          healthInsurance: Number(healthInsurance),
+          autoInsurance: Number(autoInsurance),
+          homeInsurance: Number(homeInsurance),
+          carPayment: Number(carPayment),
+          gas: Number(gas),
+          childcare: Number(childcare),
+          studentLoans: Number(studentLoans),
+          subscriptions: Number(subscriptions),
+          memberships: Number(memberships)
+
       })
       .then(res => {
         setMessage(res.data.message);

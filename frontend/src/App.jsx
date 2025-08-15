@@ -3,9 +3,23 @@ import "./App.css";
 import axios from "axios";
 
 function App() {
+
+  const [message, setMessage] = useState("");
   const [income, setIncome] = useState(0);
   const [rentMortgage, setRentMortgage] = useState(0);
-  const [message, setMessage] = useState("");
+  const [water, setWater] = useState(0);
+  const [electricity, setElectricity] = useState(0);
+  const [internet, setInternet] = useState(0);
+  const [phone, setPhone] = useState(0);
+  const [healthInsurance, setHealthInsurance] = useState(0);
+  const [autoInsurance, setAutoInsurance] = useState(0);
+  const [homeInsurance, setHomeInsurance] = useState(0);
+  const [carPayment, setCarPayment] = useState(0);
+  const [gas, setGas] = useState(0);
+  const [childcare, setChildCare] = useState(0);
+  const [studentLoans, setStudentLoans] = useState(0);
+  const [subscriptions, setSubscriptions] = useState(0);
+  const [memberships, setMemberships] = useState(0);
 
   useEffect(() => {
   axios.get("http://127.0.0.1:8000/api/message/")
@@ -18,6 +32,9 @@ function App() {
     console.log("Budget Form Submitted");
     console.log("Income: " + income);
     console.log("Income After Rent/Mortgage: " + (income-rentMortgage));
+    console.log("Water " + water);
+    console.log("Memberships " + memberships);
+
 
     axios.post("http://127.0.0.1:8000/api/calculate/", {
         income: Number(income),
@@ -36,6 +53,46 @@ function App() {
    const handelRentMortgage = (event) => {
       setRentMortgage(event.target.value);
   };
+  const handleWater = (event) => {
+    setWater(event.target.value);
+  }
+  const handleElectricity = (event) => {
+    setElectricity(event.target.value);
+  }
+  const handleInternet = (event) => {
+    setInternet(event.target.value);
+  }
+  const handlePhone = (event) => {
+    setPhone(event.target.value);
+  }
+  const handleHealthInsurance = (event) => {
+    setHealthInsurance(event.target.value);
+  }
+  const handleAutoInsurance = (event) => {
+    setAutoInsurance(event.target.value);
+  }
+  const handleHomeInsurance = (event) => {
+    setHomeInsurance(event.target.value);
+  }
+  const handleCarPayment = (event) => {
+    setCarPayment(event.target.value);
+  }
+  const handleGas = (event) => {
+    setGas(event.target.value);
+  }
+  const handleChildCare = (event) => {
+    setChildCare(event.target.value);
+  }
+  const handleStudentLoans = (event) => {
+    setStudentLoans(event.target.value);
+  }
+  const handleSubscriptions = (event) => {
+    setSubscriptions(event.target.value);
+  }
+  
+  const handleMemberships = (event) => {
+    setMemberships(event.target.value);
+  }
 
 
   return (
@@ -115,6 +172,7 @@ function App() {
                   name="water"
                   placeholder="0.00"
                   step="0.01"
+                  onChange={handleWater}
                   className="grow pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   required
                 />
@@ -138,6 +196,7 @@ function App() {
                   name="electricity"
                   placeholder="0.00"
                   step="0.01"
+                  onChange={handleElectricity}
                   className="grow pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   required
                 />
@@ -161,6 +220,7 @@ function App() {
                   name="internet"
                   placeholder="0.00"
                   step="0.01"
+                  onChange={handleInternet}
                   className="grow pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   required
                 />
@@ -184,6 +244,7 @@ function App() {
                   name="phone"
                   placeholder="0.00"
                   step="0.01"
+                  onChange={handlePhone}
                   className="grow pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   required
                 />
@@ -192,11 +253,9 @@ function App() {
           </div>
         </div>
 
-        {/* Health Insurance */}
-
         <div className="bg-blue-50 pb-5">
           <p className="text-2xl text-left bg-blue-100 pl-3 pt-2 pb-2">
-            Income
+            Insurance
           </p>
           <div className="input-div">
             <div className="row-span-2 text-left">
@@ -213,6 +272,7 @@ function App() {
                   name="health_insurance"
                   placeholder="0.00"
                   step="0.01"
+                  onChange={handleHealthInsurance}
                   className="grow pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   required
                 />
@@ -220,7 +280,6 @@ function App() {
             </div>
           </div>
 
-          {/* Auto Insurance */}
           <div className="input-div">
             <div className="row-span-2 text-left">
               <label>Auto Insurance</label>
@@ -236,6 +295,7 @@ function App() {
                   name="auto_insurance"
                   placeholder="0.00"
                   step="0.01"
+                  onChange={handleAutoInsurance}
                   className="grow pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   required
                 />
@@ -243,7 +303,6 @@ function App() {
             </div>
           </div>
 
-          {/* Home Insurance */}
           <div className="input-div">
             <div className="row-span-2 text-left">
               <label>Home Insurance</label>
@@ -259,6 +318,7 @@ function App() {
                   name="home_insurance"
                   placeholder="0.00"
                   step="0.01"
+                  onChange={handleHomeInsurance}
                   className="grow pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   required
                 />
@@ -272,7 +332,6 @@ function App() {
             Transportation
           </p>
 
-          {/* Car Payment */}
           <div className="input-div">
             <div className="row-span-2 text-left">
               <label>Car Payment</label>
@@ -288,6 +347,7 @@ function App() {
                   name="car_payment"
                   placeholder="0.00"
                   step="0.01"
+                  onChange={handleCarPayment}
                   className="grow pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   required
                 />
@@ -295,10 +355,9 @@ function App() {
             </div>
           </div>
 
-          {/* Loan Payment */}
           <div className="input-div">
             <div className="row-span-2 text-left">
-              <label>Loan Payment</label>
+              <label>Gas</label>
             </div>
             <div className="row-span-2">
               <div className="flex outline-1 outline-gray-300 bg-white">
@@ -311,6 +370,7 @@ function App() {
                   name="loan_payment"
                   placeholder="0.00"
                   step="0.01"
+                  onChange={handleGas}
                   className="grow pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   required
                 />
@@ -318,8 +378,6 @@ function App() {
             </div>
           </div>
         </div>
-
-        {/* Childcare and Education */}
 
         <div className="bg-blue-50 pb-5">
           <p className="text-2xl text-left bg-blue-100 pl-3 pt-2 pb-2">
@@ -340,13 +398,14 @@ function App() {
                   name="childcare"
                   placeholder="0.00"
                   step="0.01"
+                  onChange={handleChildCare}
                   className="grow pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   required
                 />
               </div>
             </div>
           </div>
-          {/* Student Loans */}
+
           <div className="input-div">
             <div className="row-span-2 text-left">
               <label>Student Loans</label>
@@ -358,10 +417,11 @@ function App() {
                 </div>
                 <input
                   type="number"
-                  id="student-loans"
-                  name="student-loans"
+                  id="student_loans"
+                  name="student_sloans"
                   placeholder="0.00"
                   step="0.01"
+                  onChange={handleStudentLoans}
                   className="grow pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   required
                 />
@@ -375,7 +435,6 @@ function App() {
             Miscellaneous
           </p>
 
-          {/* Subscriptions */}
           <div className="input-div">
             <div className="row-span-2 text-left">
               <label>Subscriptions</label>
@@ -391,6 +450,7 @@ function App() {
                   name="subscriptions"
                   placeholder="0.00"
                   step="0.01"
+                  onChange={handleSubscriptions}
                   className="grow pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   required
                 />
@@ -398,7 +458,6 @@ function App() {
             </div>
           </div>
 
-          {/* Memberships */}
           <div className="input-div">
             <div className="row-span-2 text-left">
               <label>Memberships</label>
@@ -414,6 +473,7 @@ function App() {
                   name="memberships"
                   placeholder="0.00"
                   step="0.01"
+                  onChange={handleMemberships}
                   className="grow pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   required
                 />
